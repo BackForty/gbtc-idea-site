@@ -1,12 +1,12 @@
 class Idea < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :description, :title, :user_id
+  belongs_to :event
+  attr_accessible :description, :title, :user_id, :event_id
+
   acts_as_voteable
   acts_as_commentable
 
-  validates :title, :presence => true
-  validates :description, :presence => true
-  validates :user, :presence => true
+  validates :title, :description, :user, :event, :presence => true
 
   def self.similar_by_title(title)
     search_by_title(title)

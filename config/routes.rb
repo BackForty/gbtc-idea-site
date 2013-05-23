@@ -1,16 +1,18 @@
 IdeaSite::Application.routes.draw do
   devise_for :users
 
-  resources :ideas do
-    resources :comments, :only => [:create]
+  resources :events do
+    resources :ideas do
+      resources :comments, :only => [:create]
 
-    member do
-      post '/vote/:vote' => :vote
-    end
+      member do
+        post '/vote/:vote' => :vote
+      end
 
-    collection do
-      get '/similar/:title' => :similar
-      get '/search' => :search, :as => :search
+      collection do
+        get '/similar/:title' => :similar
+        get '/search' => :search, :as => :search
+      end
     end
   end
 
@@ -29,5 +31,5 @@ IdeaSite::Application.routes.draw do
     post '/subscribe' => :subscribe, :as => :subscriptions
   end
 
-  root :to => 'pages#home'
+  root :to => 'events#index'
 end

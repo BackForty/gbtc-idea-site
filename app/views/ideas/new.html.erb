@@ -1,7 +1,7 @@
 <div class="container">
   <div class="two">
     <h2 class="secondary-heading">Submit an Idea</h2>
-    <%= render :partial => 'form', :locals => { :idea => @idea } %>
+    <%= render :partial => 'form', :locals => { event: @event, idea: @idea } %>
   </div>
   <div class="one last">
     <h3 class="tertiary-heading">What Should I Submit?</h3>

@@ -1,17 +1,5 @@
 <div class="sidebar">
-  <%= link_to 'New Idea', new_idea_path, class: 'button' %>
+  <%= link_to 'New Idea', new_event_idea_path, class: 'button' %>
 
-  <p>Submit your ideas for the Idea Site event here so attendees can begin thinking and planning for them. Other's will vote and review the ideas to help get the best ones.</p>
-
-  <h3 class="tertiary-heading">We're Inspired By</h3>
-
-  <ul class="list">
-    <li><%= link_to 'SFpark', 'http://sfpark.org' %></li>
-    <li><%= link_to 'Street Bump', 'http://streetbump.org' %></li>
-    <li><%= link_to 'Rate Your Ride (MTA)', 'http://rateyourride.org' %></li>
-    <li><%= link_to 'WiggleMap', 'http://wigglemap.com' %></li>
-    <li><%= link_to 'Side-by-Side Router', 'http://mvjantzen.com/tools/modes.html' %></li>
-    <li><%= link_to 'Code for America Transportation Apps', 'http://commons.codeforamerica.org/civic-function/transportation' %></li>
-    <li><%= link_to 'Transit Space Race', 'http://reconnectingamerica.org/spacerace/spaceracemap.html' %></li>
-  </ul>
+  <p>Submit your ideas for <%= @event.title %> here so attendees can begin thinking and planning for them. Other's will vote and review the ideas to help get the best ones.</p>
 </div>
