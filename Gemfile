@@ -14,6 +14,7 @@ gem 'sentry-raven', '~> 0.4.4'
 gem 'textacular', '~> 3.0.0', require: 'textacular/rails'
 gem 'thumbs_up', '~> 0.6.4'
 gem 'puma'
+gem 'rails_admin'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

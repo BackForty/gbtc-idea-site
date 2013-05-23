@@ -4,9 +4,7 @@
 
     <h2 class="secondary-heading">Ideas <%= if params[:query]; raw("matching &lsquo;#{params[:query]}&rsquo;"); end %></h2>
     <ul>
-      <% @ideas.each do |idea| %>
-        <%= render partial: 'idea', locals: { idea: idea } %>
-      <% end %>
+      <%= render partial: 'idea', collection: @ideas %>
     </ul>
   </div>
   <div class="one last">
