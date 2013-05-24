@@ -1,4 +1,4 @@
-<%= form_for [event, idea] do |f| %>
+<%= form_for [idea.event, idea] do |f| %>
   <%= f.hidden_field :user_id %>
 
   <% unless idea.errors.empty? %>
@@ -20,7 +20,17 @@
     <li>
       <%= f.label :description, 'Description' %>
       <%= f.text_area :description %><br />
-      <p class="tooltip"><%= link_to 'Markdown', 'http://daringfireball.net/projects/markdown/syntax' %> enabled.</p>
+      <%= markdown_help %>
+    </li>
+    <li>
+      <%= f.label :help_needed, 'Help Needed (design, development, tools)' %>
+      <%= f.text_area :help_needed %><br />
+      <%= markdown_help %>
+    </li>
+    <li>
+      <%= f.label :data_needed, 'Data Needed' %>
+      <%= f.text_area :data_needed %><br />
+      <%= markdown_help %>
     </li>
     <li><%= f.submit "#{ idea.persisted? ? "Edit Idea" : "Create Idea" }", class: 'submit' %></li>
   </ul>

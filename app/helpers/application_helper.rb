@@ -9,6 +9,13 @@ module ApplicationHelper
     </div>")
   end
 
+  def markdown_help
+    content_tag 'p', class: 'tooltip' do
+      link_to('Markdown', 'http://daringfireball.net/projects/markdown/syntax', tabindex: -1) +
+        ' enabled.'
+    end
+  end
+
   def open_graph_tags(options = {})
     if options.present?
       options.merge!(default_open_graph_tags)

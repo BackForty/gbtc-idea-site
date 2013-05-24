@@ -54,8 +54,8 @@ class IdeasController < ApplicationController
     else
       flash.alert = "Couldn't Update the Idea"
     end
-    redirect_to idea_url(idea) and return if idea
-    redirect_to ideas_url
+    redirect_to event_idea_url(idea.event, idea) and return if idea
+    redirect_to event_ideas_url(@event)
   end
 
   def destroy
@@ -65,7 +65,7 @@ class IdeasController < ApplicationController
     else
       flash.alert = "Idea Could not be Deleted"
     end
-    redirect_to ideas_url
+    redirect_to event_ideas_url(@event)
   end
 
   def vote
@@ -73,7 +73,7 @@ class IdeasController < ApplicationController
     if request.env["HTTP_REFERER"]
       redirect_to :back
     else
-      redirect_to ideas_url
+      redirect_to event_ideas_url(@event)
     end
   end
 end

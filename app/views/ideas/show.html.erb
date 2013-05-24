@@ -11,6 +11,15 @@
       <%= edit_idea_link(@idea) %>
     </div>
     <p><%= raw(Kramdown::Document.new(@idea.description, input: 'markdown').to_html) %></p>
+    <% if !@idea.help_needed.empty? %>
+      <p>Help needed to execute on the idea:</p>
+      <p><%= raw(Kramdown::Document.new(@idea.help_needed, input: 'markdown').to_html) %></p>
+    <% end %>
+
+    <% if !@idea.data_needed.empty? %>
+      <p>Data needed to execute on the idea:</p>
+      <p><%= raw(Kramdown::Document.new(@idea.data_needed, input: 'markdown').to_html) %></p>
+    <% end %>
   </div>
   <div class="one last idea-comments">
     <div class="vote">
@@ -26,7 +35,7 @@
     <h3 class="tertiary-heading">New Comment</h3>
     <div id="comment-new">
       <ul>
-        <%= form_for [@idea, @comment] do |f| %>
+        <%= form_for [@event, @idea, @comment] do |f| %>
           <div style="margin:0;padding:0;display:inline">
             <%= f.hidden_field :commentable_type %>
             <%= f.hidden_field :commentable_id %>
