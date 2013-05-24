@@ -10,7 +10,7 @@
     @include box-sizing(border-box);
     width: 486px;
 
-    .idea-description {
+    .event-description {
       margin-bottom: 30px;
     }
 
@@ -20,20 +20,6 @@
       padding: 6px 5px;
       font-size: 0.8em;
       line-height: 20px;
-
-      div {
-        float: left;
-        margin-right: 10px;
-        color: lighten($primary_color, 50%);
-      }
-
-      .view a {
-        color: lighten($primary_color, 50%);
-
-        &:hover {
-          color: $primary_color;
-        }
-      }
     }
   }
 }
