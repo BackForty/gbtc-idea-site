@@ -25,6 +25,18 @@ nav {
       color: $inverse_primary_color;
     }
   }
+  
+  a.gbtc-logo {
+    padding: none;
+    width: 85px;
+    height: 85px;
+    background: url(gbtc-logo-sprite.png) no-repeat -595px 0;
+
+    &:hover {
+      background: url(gbtc-logo-sprite.png) no-repeat -595px 0;
+      color: none;
+    }
+  }
 }
 
 #account-nav {
