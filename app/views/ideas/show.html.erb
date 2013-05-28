@@ -1,41 +1,41 @@
-<% title @idea.title %>
-<% open_graph_tags :title => @idea.title %>
+<% title idea.title %>
+<% open_graph_tags :title => idea.title %>
 
 <div class="container idea-single">
   <div class="two">
-    <h2 class="secondary-heading"><%= @idea.title %></h2>
+    <h2 class="secondary-heading"><%= idea.title %></h2>
     <div class="idea-info">
-      <div class="author"><%= gravatar_image_tag(@idea.user.email, class: 'gravatar', :gravatar => { :secure => true }) %></div>
-      <div class="published">Posted on <%= @idea.created_at.strftime('%B %d, %Y') %></div>
-      <div class="comments"><%= pluralize @idea.comments.count, 'Comment' %></div>
-      <%= edit_idea_link(@idea) %>
+      <div class="author"><%= gravatar_image_tag(idea.user.email, class: 'gravatar', :gravatar => { :secure => true }) %></div>
+      <div class="published">Posted on <%= idea.created_at.strftime('%B %d, %Y') %></div>
+      <div class="comments"><%= pluralize idea.comments.count, 'Comment' %></div>
+      <%= edit_idea_link(idea) %>
     </div>
-    <p><%= raw(Kramdown::Document.new(@idea.description, input: 'markdown').to_html) %></p>
-    <% if !@idea.help_needed.empty? %>
+    <p><%= raw(Kramdown::Document.new(idea.description, input: 'markdown').to_html) %></p>
+    <% if idea.help_needed && !idea.help_needed.empty? %>
       <p>Help needed to execute on the idea:</p>
-      <p><%= raw(Kramdown::Document.new(@idea.help_needed, input: 'markdown').to_html) %></p>
+      <p><%= raw(Kramdown::Document.new(idea.help_needed, input: 'markdown').to_html) %></p>
     <% end %>
 
-    <% if !@idea.data_needed.empty? %>
+    <% if idea.data_needed && !idea.data_needed.empty? %>
       <p>Data needed to execute on the idea:</p>
-      <p><%= raw(Kramdown::Document.new(@idea.data_needed, input: 'markdown').to_html) %></p>
+      <p><%= raw(Kramdown::Document.new(idea.data_needed, input: 'markdown').to_html) %></p>
     <% end %>
   </div>
   <div class="one last idea-comments">
     <div class="vote">
       <div class="left half">
-        <div class="vote-value"><%= @idea.plusminus %></div>
+        <div class="vote-value"><%= idea.plusminus %></div>
       </div>
       <div class="right half">
-        <%= button_to raw('&#9650;'), { :action => :vote, :id => @idea.id, :vote => :up }, :method => :post, :class => 'vote-button up' %>
-        <%= button_to raw('&#9660;'), { :action => :vote, :id => @idea.id, :vote => :down }, :method => :post, :class => 'vote-button down' %>
+        <%= button_to raw('&#9650;'), { :action => :vote, :id => idea.id, :vote => :up }, :method => :post, :class => 'vote-button up' %>
+        <%= button_to raw('&#9660;'), { :action => :vote, :id => idea.id, :vote => :down }, :method => :post, :class => 'vote-button down' %>
       </div>
       <div class="clear"></div>
     </div>
     <h3 class="tertiary-heading">New Comment</h3>
     <div id="comment-new">
       <ul>
-        <%= form_for [@event, @idea, @comment] do |f| %>
+        <%= form_for [event, idea, comment] do |f| %>
           <div style="margin:0;padding:0;display:inline">
             <%= f.hidden_field :commentable_type %>
             <%= f.hidden_field :commentable_id %>
@@ -50,7 +50,7 @@
     </div>
     <h3 class="tertiary-heading">Comments</h3>
     <ul id="comments">
-      <% @idea.comments.reverse.select { |c| c.persisted? }.each do |comment| %>
+      <% idea.comments.reverse.select { |c| c.persisted? }.each do |comment| %>
         <li class="comment">
           <div class="comment-body"><%= raw(Kramdown::Document.new(comment.comment, input: 'markdown').to_html) %></div>
           <div class="comment-metadata">

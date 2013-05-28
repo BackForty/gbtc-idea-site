@@ -4,7 +4,7 @@
 
     <h2 class="secondary-heading">Ideas <%= if params[:query]; raw("matching &lsquo;#{params[:query]}&rsquo;"); end %></h2>
     <ul>
-      <%= render partial: 'idea', collection: @ideas %>
+      <%= render partial: 'idea', collection: ideas %>
     </ul>
   </div>
   <div class="one last">

@@ -1,6 +1,4 @@
 <%= form_for [idea.event, idea] do |f| %>
-  <%= f.hidden_field :user_id %>
-
   <% unless idea.errors.empty? %>
     <div id="error_explanation" class='errors'>
       <ul>

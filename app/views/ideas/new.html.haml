@@ -1,0 +1,7 @@
+.container
+  .two
+    = link_to 'Similar Ideas', similar_event_ideas_path(event, idea), style: 'display: none', id: 'similar_ideas'
+    %h2.secondary-heading Submit an Idea
+    = render :partial => 'form', :locals => { event: event, idea: idea }
+  .one.last
+    = render :partial => 'what_to_submit'

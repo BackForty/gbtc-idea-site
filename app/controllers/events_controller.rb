@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
+  expose(:events) {Event.future.ascending_date}
+
   def index
-    @events = Event.future.ascending_date
   end
 end

@@ -12,7 +12,7 @@ IdeaSite::Application.routes.draw do
       end
 
       collection do
-        get '/similar/:title' => :similar
+        get '/similar/(:title)' => :similar, :as => :similar
         get '/search' => :search, :as => :search
       end
     end

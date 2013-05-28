@@ -1,18 +1,11 @@
 <div class="container">
   <div class="two">
     <h2 class="secondary-heading">Edit Your Idea</h2>
-    <%= render :partial => 'form', :locals => { :idea => @idea } %>
+    <%= render :partial => 'form', :locals => { :idea => idea } %>
   </div>
   <div class="one last">
-    <h3 class="tertiary-heading">What Should I Submit?</h3>
+    <%= render :partial => 'what_to_submit' %>
 
-    <p>Before the big event, we're gathering the community's ideas for apps, tools,
-    events, anything that will promote getting around in Balitmore.</p>
-
-    <p>Ideas that help make it easier to get around in any form of transportatation
-    are useful, even if the benefit is indirect. A project started a few years ago that allowed
-    bus commuters to rate their satisfaction with different bus lines online is an excellent example</p>
-
-    <%= link_to 'Delete Permanently', event_idea_url(@event, @idea), :method => :delete, :class => "button alert bold", :confirm => "Are you sure you want to delete this idea?" %>
+    <%= link_to 'Delete Permanently', event_idea_url(event, idea), :method => :delete, :class => "button alert bold", :confirm => "Are you sure you want to delete this idea?" %>
   </div>
 </div>
