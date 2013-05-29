@@ -1,0 +1,28 @@
+= form_for [idea.event, idea] do |f| 
+  - unless idea.errors.empty?
+    #error_explanation.errors
+      %ul
+        - idea.errors.full_messages.each do |message|
+          %li.error=  message
+  %ul
+    %li
+      = f.label :title, 'Title'
+      = f.text_field :title, :id => 'idea-title'
+      %br/
+      #idea-similar
+    %li
+      = f.label :description, 'Description'
+      = f.text_area :description
+      %br/
+      = markdown_help
+    %li
+      = f.label :help_needed, 'Help Needed (design, development, tools)'
+      = f.text_area :help_needed
+      %br/
+      = markdown_help
+    %li
+      = f.label :data_needed, 'Data Needed'
+      = f.text_area :data_needed
+      %br/
+      = markdown_help
+    %li= f.submit "#{ idea.persisted? ? "Edit Idea" : "Create Idea" }", class: 'submit'
