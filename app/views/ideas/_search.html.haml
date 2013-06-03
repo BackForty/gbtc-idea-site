@@ -1,0 +1,3 @@
+.search
+  = form_tag search_event_ideas_path, :method => :get do
+    = text_field_tag('query', '', placeholder: 'Search Ideas', class: 'query round-left') + submit_tag('Search', class: 'submit round-right')
