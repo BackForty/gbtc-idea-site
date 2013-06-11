@@ -18,6 +18,8 @@ IdeaSite::Application.routes.draw do
     end
   end
 
+  match '/past_events' => 'events#index', :defaults => {:past => true}
+
   controller :pages do
     get '/apis' => :apis, :as => :apis
     get '/schedule' => :schedule, :as => :schedule

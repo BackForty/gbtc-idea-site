@@ -6,7 +6,11 @@ class Event < ActiveRecord::Base
   validates :slug, uniqueness: true
 
   def self.future
-    where(['date >= ?', Date.today])
+    where(['date >= ?', Date.today - 1.week])
+  end
+  
+  def self.past
+    where(['date < ?', Date.today - 1.week])
   end
 
   def self.ascending_date
